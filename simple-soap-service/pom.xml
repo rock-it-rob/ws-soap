@@ -9,6 +9,15 @@
 
 	<packaging>war</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+			<version>2.3.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -29,6 +38,13 @@
 					<path>/</path>
 					<contextReloadable>true</contextReloadable>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.glassfish.metro</groupId>
+						<artifactId>webservices-rt</artifactId>
+						<version>2.4.0</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
