@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime'
+	version='2.0'>
+	<endpoint name='Simple' implementation='rob.example.ws.soap.Simple'
+		url-pattern='/simple' />
+</endpoints>
