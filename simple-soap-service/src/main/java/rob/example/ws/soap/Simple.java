@@ -4,7 +4,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.xml.ws.RequestWrapper;
 
 /**
  * SimpleService is a class holding methods that each represent a SOAP web
@@ -34,16 +33,19 @@ public class Simple
 	}
 
 	/**
-	 * Accepts 2 integers and returns their sum.
+	 * Method showing how to accept a complex xml object as a parameter and
+	 * return a complex xml object as a reponse. Both the request and response
+	 * values are JAXB-compatible classes. No other configuration is necessary.
 	 * 
 	 * @param additionRequest
-	 * @return sum of the 2 integers passed in.
+	 * @return sum of the 2 integers passed in as a {@link AdditionResponse}.
 	 */
 	@WebMethod
-	@RequestWrapper(className = "rob.example.ws.soap.AdditionRequest")
 	@WebResult(name = "additionResponse")
-	public AdditionResponse add(@WebParam(name = "intOne") int a, @WebParam(name = "intTwo") int b)
+	public AdditionResponse add(@WebParam(name = "additionRequest") AdditionRequest additionRequest)
 	{
+		int a = additionRequest.getIntOne();
+		int b = additionRequest.getIntTwo();
 		int result = a + b;
 		AdditionResponse additionResponse = new AdditionResponse();
 		additionResponse.setIntOne(a);
