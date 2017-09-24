@@ -3,6 +3,7 @@ package rob.example.ws.soap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -15,8 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class AdditionResponse
 {
-	private AdditionRequest additionRequest;
-
+	private int intOne;
+	private int intTwo;
 	private int result;
 
 	/**
@@ -26,9 +27,14 @@ public class AdditionResponse
 	public AdditionResponse()
 	{}
 
-	public void setAdditionRequest(AdditionRequest additionRequest)
+	public void setIntOne(int intOne)
 	{
-		this.additionRequest = additionRequest;
+		this.intOne = intOne;
+	}
+
+	public void setIntTwo(int intTwo)
+	{
+		this.intTwo = intTwo;
 	}
 
 	public void setResult(int result)
@@ -36,10 +42,11 @@ public class AdditionResponse
 		this.result = result;
 	}
 
-	@XmlElement(name = "source")
-	public AdditionRequest getAdditionRequest()
+	@XmlElementWrapper(name = "source")
+	@XmlElement(name = "int")
+	public int[] getRequest()
 	{
-		return this.additionRequest;
+		return new int[] { this.intOne, this.intTwo };
 	}
 
 	@XmlElement
