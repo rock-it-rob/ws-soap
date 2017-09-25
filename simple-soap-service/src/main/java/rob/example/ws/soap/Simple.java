@@ -44,8 +44,8 @@ public class Simple
 	@WebResult(name = "additionResponse")
 	public AdditionResponse add(@WebParam(name = "additionRequest") AdditionRequest additionRequest)
 	{
-		int a = additionRequest.getIntOne();
-		int b = additionRequest.getIntTwo();
+		int a = additionRequest.getInt1();
+		int b = additionRequest.getInt2();
 		int result = a + b;
 		AdditionResponse additionResponse = new AdditionResponse();
 		additionResponse.setSource(a, b);

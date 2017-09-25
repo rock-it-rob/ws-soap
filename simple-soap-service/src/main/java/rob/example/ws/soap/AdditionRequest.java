@@ -1,6 +1,8 @@
 package rob.example.ws.soap;
 
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorOrder;
+import javax.xml.bind.annotation.XmlAccessOrder;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -16,10 +18,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
 public class AdditionRequest
 {
-	private int intOne;
-	private int intTwo;
+	private int int1;
+	private int int2;
 
 	/**
 	 * All fields are initialized via get/set methods to be JAXB-compatible.
@@ -27,23 +30,23 @@ public class AdditionRequest
 	public AdditionRequest()
 	{}
 
-	public void setIntOne(int intOne)
+	public void setInt1(int int1)
 	{
-		this.intOne = intOne;
+		this.int1 = int1;
 	}
 
-	public void setIntTwo(int intTwo)
+	public void setInt2(int int2)
 	{
-		this.intTwo = intTwo;
+		this.int2 = int2;
 	}
 
-	public int getIntOne()
+	public int getInt1()
 	{
-		return this.intOne;
+		return this.int1;
 	}
 
-	public int getIntTwo()
+	public int getInt2()
 	{
-		return this.intTwo;
+		return this.int2;
 	}
 }
