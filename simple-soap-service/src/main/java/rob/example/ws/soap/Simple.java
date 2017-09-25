@@ -48,8 +48,7 @@ public class Simple
 		int b = additionRequest.getIntTwo();
 		int result = a + b;
 		AdditionResponse additionResponse = new AdditionResponse();
-		additionResponse.setIntOne(a);
-		additionResponse.setIntTwo(b);
+		additionResponse.setSource(a, b);
 		additionResponse.setResult(result);
 
 		return additionResponse;

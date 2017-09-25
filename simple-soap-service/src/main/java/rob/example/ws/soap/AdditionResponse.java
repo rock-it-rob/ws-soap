@@ -1,5 +1,8 @@
 package rob.example.ws.soap;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,8 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class AdditionResponse
 {
-	private int intOne;
-	private int intTwo;
+	private ArrayList<Integer> source;
 	private int result;
 
 	/**
@@ -27,14 +29,11 @@ public class AdditionResponse
 	public AdditionResponse()
 	{}
 
-	public void setIntOne(int intOne)
+	public void setSource(int intOne, int intTwo)
 	{
-		this.intOne = intOne;
-	}
-
-	public void setIntTwo(int intTwo)
-	{
-		this.intTwo = intTwo;
+		this.source = new ArrayList<>();
+		this.source.add(intOne);
+		this.source.add(intTwo);
 	}
 
 	public void setResult(int result)
@@ -42,14 +41,19 @@ public class AdditionResponse
 		this.result = result;
 	}
 
+	/**
+	 * In this method we use the annotations to control how the output xml is
+	 * formed.
+	 * 
+	 * @return the 2 integers used in the calculation of the result.
+	 */
 	@XmlElementWrapper(name = "source")
 	@XmlElement(name = "int")
-	public int[] getRequest()
+	public List<Integer> getSource()
 	{
-		return new int[] { this.intOne, this.intTwo };
+		return this.source;
 	}
 
-	@XmlElement
 	public int getResult()
 	{
 		return this.result;
