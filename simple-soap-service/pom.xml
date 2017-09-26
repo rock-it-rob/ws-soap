@@ -43,6 +43,22 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8080</port>
+					<path>/simple-soap-service</path>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.glassfish.metro</groupId>
+						<artifactId>metro-runtime-api</artifactId>
+						<version>2.4.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 
